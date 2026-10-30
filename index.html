@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Sharingan — TV Interactive Theme</title>
+<style>
+:root{--red:#ff1838;--red2:#8b0019;--white:#f4e9eb;--muted:#9b8d92}
+*{box-sizing:border-box}
+html,body{margin:0;width:100%;height:100%;overflow:hidden;background:#030204;color:var(--white);font-family:Arial,Helvetica,sans-serif}
+body{background:radial-gradient(ellipse at 50% 36%,#26050d 0%,#0d0307 38%,#020203 75%)}
+.grain{position:fixed;inset:0;pointer-events:none;opacity:.12;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.25'/%3E%3C/svg%3E")}
+.ambient{position:absolute;inset:0;background:linear-gradient(115deg,transparent 0 44%,#ff18380b 44.2% 44.5%,transparent 44.7%),linear-gradient(65deg,transparent 0 70%,#ff183808 70.2% 70.4%,transparent 70.6%)}
+.top{position:absolute;top:5%;left:5.5%;right:5.5%;display:flex;justify-content:space-between;align-items:center;letter-spacing:.26em;text-transform:uppercase;font-size:clamp(9px,1.1vw,14px);color:#bcaeb3}
+.brand{color:#f7e8ec}.brand b{color:var(--red);font-weight:700}
+.status{display:flex;gap:10px;align-items:center}.dot{width:6px;height:6px;border-radius:50%;background:var(--red);box-shadow:0 0 12px var(--red)}
+.title{position:absolute;left:6%;top:18%;z-index:2}.eyebrow{font-size:clamp(10px,1vw,14px);letter-spacing:.45em;color:var(--red);text-transform:uppercase;margin-bottom:12px}
+h1{font-weight:900;letter-spacing:.03em;line-height:.88;margin:0;font-size:clamp(42px,8vw,112px);text-transform:uppercase;text-shadow:0 0 35px #ff18381a}
+h1 span{display:block;color:transparent;-webkit-text-stroke:1px #f5e8ec}
+.subtitle{margin-top:18px;color:#a99aa0;letter-spacing:.18em;font-size:clamp(9px,1.05vw,13px);text-transform:uppercase}
+.eyes{position:absolute;right:7%;top:18%;width:min(53vw,760px);height:min(42vh,360px);display:flex;gap:2.5%;align-items:center;justify-content:center;filter:drop-shadow(0 0 28px #ff002b22);transition:transform .5s cubic-bezier(.2,.8,.2,1)}
+.eye{width:49%;height:100%;position:relative;overflow:hidden;clip-path:polygon(0 20%,22% 4%,50% 0,78% 4%,100% 20%,80% 73%,50% 100%,20% 73%);background:linear-gradient(145deg,#f2dadd,#6e202d 42%,#12050a 78%);border:1px solid #ff1838}
+.eye:before{content:"";position:absolute;inset:8% 5%;background:#070307;clip-path:polygon(0 20%,22% 4%,50% 0,78% 4%,100% 20%,80% 73%,50% 100%,20% 73%)}
+.iris{position:absolute;left:50%;top:50%;width:47%;aspect-ratio:1;border-radius:50%;transform:translate(-50%,-50%);background:radial-gradient(circle,#ff9eaa 0 5%,#e1002b 8% 27%,#3b000d 29% 34%,#e80c31 36% 42%,#120308 44% 48%,#d8002a 50% 52%,#2a0009 54%);box-shadow:0 0 25px #ff002b99,inset 0 0 12px #ffb0b8;transition:transform .22s ease}
+.iris:before{content:"";position:absolute;left:50%;top:50%;width:16%;height:60%;background:#090207;transform:translate(-50%,-50%);border-radius:50%}
+.tomoe{position:absolute;width:11%;height:19%;background:#0b0206;border-radius:70% 20% 70% 20%;left:50%;top:12%;transform:translateX(-50%) rotate(35deg);transform-origin:50% 200%}
+.iris.spin{animation:spin .65s ease-in-out}.eyelid{position:absolute;inset:0;background:#090207;transform:scaleY(0);z-index:3;transform-origin:top;clip-path:polygon(0 0,100% 0,100% 20%,80% 73%,50% 100%,20% 73%,0 20%);pointer-events:none}
+.blink .eyelid{animation:blink .22s ease-in-out}
+@keyframes blink{0%{transform:scaleY(0)}45%{transform:scaleY(1)}100%{transform:scaleY(0)}}
+@keyframes spin{to{transform:translate(-50%,-50%) rotate(720deg)}}
+.nav{position:absolute;left:6%;bottom:14%;right:6%;display:flex;gap:clamp(8px,1.4vw,20px);align-items:center}
+.app{border:1px solid #ffffff25;background:linear-gradient(145deg,#ffffff0c,#ffffff03);border-radius:4px;min-width:0;flex:1;height:clamp(58px,9vh,88px);display:flex;align-items:center;justify-content:center;gap:10px;color:#d6cbd0;text-transform:uppercase;letter-spacing:.13em;font-size:clamp(9px,1vw,13px);cursor:pointer;transition:all .22s;outline:none}
+.app .symbol{font-size:clamp(16px,2vw,25px);color:var(--red)}
+.app:focus,.app.active{border-color:var(--red);background:linear-gradient(145deg,#5b0719aa,#14050a);box-shadow:0 0 24px #ff18382a;transform:translateY(-7px);color:#fff}
+.app:focus .symbol,.app.active .symbol{text-shadow:0 0 12px var(--red)}
+.bottom{position:absolute;bottom:5%;left:6%;right:6%;display:flex;justify-content:space-between;align-items:center;color:#786b71;font-size:clamp(8px,.9vw,11px);letter-spacing:.18em;text-transform:uppercase}
+.key{border:1px solid #514048;border-radius:3px;padding:5px 8px;color:#bcaeb3;margin-right:5px}
+.flash{position:fixed;inset:0;background:#ff002b;opacity:0;pointer-events:none}
+.zoom .eyes{transform:scale(1.22) translate(-3%,8%)}.zoom .title{opacity:.22;transition:opacity .3s}.zoom .nav{opacity:.2;transition:opacity .3s}.zoom .flash{animation:flash .42s ease-out}
+@keyframes flash{0%{opacity:.25}100%{opacity:0}}
+@media(max-aspect-ratio:1/1){.title{top:12%}.eyes{top:36%;left:10%;right:auto;width:80vw;height:26vh}.nav{bottom:10%;flex-wrap:wrap}.app{flex:1 1 28%;height:54px}.bottom{bottom:2%}}
+</style>
+</head>
+<body>
+<div class="ambient"></div><div class="grain"></div>
+<header class="top"><div class="brand">UCHIHA <b>///</b> SYSTEM</div><div class="status"><i class="dot"></i> <span>AWAKE</span></div></header>
+<section class="title"><div class="eyebrow">Visual interface · 001</div><h1>SHARINGAN<span>AWAKEN</span></h1><div class="subtitle">The eyes see everything.</div></section>
+<div class="eyes" id="eyes" aria-label="Animated Sharingan eyes">
+  <div class="eye"><div class="iris"><i class="tomoe"></i></div><div class="eyelid"></div></div>
+  <div class="eye"><div class="iris"><i class="tomoe"></i></div><div class="eyelid"></div></div>
+</div>
+<nav class="nav" id="nav" aria-label="Interactive menu">
+<button class="app" data-i="0"><span class="symbol">▶</span> Watch</button>
+<button class="app" data-i="1"><span class="symbol">◈</span> Anime</button>
+<button class="app" data-i="2"><span class="symbol">✦</span> Explore</button>
+<button class="app" data-i="3"><span class="symbol">◉</span> Focus</button>
+<button class="app" data-i="4"><span class="symbol">⟳</span> Awaken</button>
+</nav>
+<footer class="bottom"><span><b class="key">←</b><b class="key">→</b> Navigate <b class="key">OK</b> Activate</span><span>ITACHI · MANGEKYO EDITION</span></footer>
+<div class="flash"></div>
+<script>
+const body=document.body, eyes=document.getElementById('eyes'), iris=[...document.querySelectorAll('.iris')], apps=[...document.querySelectorAll('.app')];
+let selected=0, zoomTimer;
+function select(i){selected=(i+apps.length)%apps.length;apps.forEach((a,n)=>{a.classList.toggle('active',n===selected);});const r=apps[selected].getBoundingClientRect(), cx=innerWidth/2, cy=innerHeight*.39;const dx=Math.max(-16,Math.min(16,(r.left+r.width/2-cx)/innerWidth*65)),dy=Math.max(-12,Math.min(12,(r.top+r.height/2-cy)/innerHeight*40));iris.forEach((el,n)=>el.style.transform=`translate(calc(-50% + ${dx}px),calc(-50% + ${dy}px))`);}
+function blink(){body.classList.add('blink');setTimeout(()=>body.classList.remove('blink'),240);setTimeout(blink,2500+Math.random()*5000)}
+function activate(){const i=iris[Math.floor(Math.random()*iris.length)];i.classList.remove('spin');void i.offsetWidth;i.classList.add('spin');body.classList.add('zoom');clearTimeout(zoomTimer);zoomTimer=setTimeout(()=>body.classList.remove('zoom'),950);}
+apps.forEach((a,i)=>{a.addEventListener('focus',()=>select(i));a.addEventListener('mouseenter',()=>select(i));a.addEventListener('click',()=>{select(i);activate()});});
+document.addEventListener('keydown',e=>{if(['ArrowRight','ArrowDown'].includes(e.key)){e.preventDefault();select(selected+1);apps[selected].focus()}else if(['ArrowLeft','ArrowUp'].includes(e.key)){e.preventDefault();select(selected-1);apps[selected].focus()}else if(e.key==='Enter'||e.key===' '){e.preventDefault();activate()}else if(e.key==='Escape'||e.key==='Backspace'){body.classList.remove('zoom')}});
+select(0);setTimeout(blink,2200);document.addEventListener('visibilitychange',()=>{if(!document.hidden)activate()});
+</script>
+</body>
+</html>
